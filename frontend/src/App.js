@@ -11,6 +11,7 @@ import Login from './componentes/pages/Auth/login';
 import Register from './componentes/pages/Auth/register';
 import Home from './componentes/pages/home';
 import Profile from './componentes/pages/User/Profile';
+import MyPets from './componentes/pages/Pet/MyPets';
 
 //context
 import { UserProvider } from './context/UserContext';
@@ -25,7 +26,8 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-             <Route path="/user/profile" element={<Profile />} />
+            <Route path="/user/profile" element={<Profile />} />
+            <Route path="/pet/mypets" element={<MyPets />} />
             <Route path="/" element={<Home />} />
           </Routes>
         </Container>
