@@ -31,12 +31,21 @@ function PetForm({handleSubmit,petData,btnText}){
         <form onSubmit={submit} className={formStyles.form_container}>
             <div className={formStyles.preview_pet_images}>
                 {preview.length > 0
-                    ? preview.map((image, index) =>
-                        <img src={URL.createObjectURL(image)} alt={pet.name} key={`${pet.name}+${index}`} />
-                    ) : pet.images && pet.images.map((image, index)=>(
-                        <img src={`${process.env.REACT_APP_API}`} alt={pet.name} key={`${pet.name}+${index}`} />
+                ? preview.map((image, index) => (
+                    <img
+                        src={URL.createObjectURL(image)}
+                        alt={pet.name}
+                        key={`${pet.name}+${index}`}
+                    />
                     ))
-                }
+                : pet.images &&
+                    pet.images.map((image, index) => (
+                    <img
+                        src={`${process.env.REACT_APP_API}/images/pets/${image}`}
+                        alt={pet.name}
+                        key={`${pet.name}+${index}`}
+                    />
+                    ))}
             </div>
             <Input 
                text='Imagens do Pet'

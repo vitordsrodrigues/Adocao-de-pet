@@ -178,28 +178,29 @@ module.exports = class PetControllers{
         }else{
             updatedData.name = name
         }
+
         if(!age){
             res.status(422).json({message:"a idade é obrigatorio"})
             return
         }else{
             updatedData.age = age
         }
+
         if(!weight){
             res.status(422).json({message:"o peso é obrigatorio"})
             return
         }else{
             updatedData.weight = weight
         }
+
         if(!color){
             res.status(422).json({message:"a cor é obrigatorio"})
             return
         }else{
             updatedData.color = color
         }
-        if(images.length ===0){
-            res.status(422).json({message:"a imagem é obrigatorio"})
-            return
-        }else{
+        
+        if(images.length > 0){
             updatedData.images = []
             images.map((image)=>{
                 updatedData.images.push(image.filename)

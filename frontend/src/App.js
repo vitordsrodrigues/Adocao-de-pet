@@ -13,6 +13,7 @@ import Home from './componentes/pages/home';
 import Profile from './componentes/pages/User/Profile';
 import MyPets from './componentes/pages/Pet/MyPets';
 import AddPet from './componentes/pages/Pet/addPet';
+import EditPet from './componentes/pages/Pet/EditPet';
 
 //context
 import { UserProvider } from './context/UserContext';
@@ -30,6 +31,7 @@ function App() {
             <Route path="/user/profile" element={<Profile />} />
             <Route path="/pet/mypets" element={<MyPets />} />
             <Route path="/pet/add" element={<AddPet />} />
+            <Route path="/pet/edit/:id" element={<EditPet />}/>
             <Route path="/" element={<Home />} />
           </Routes>
         </Container>

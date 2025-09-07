@@ -7,6 +7,7 @@ import styles from './Dashboard.module.css'
 /* hooks */
 import useFlashMessage from "../../../hooks/useFlashMessage"
 
+
 function MyPets(){
     const [pets,setPets] = useState([])
     const [token] = useState(localStorage.getItem('token')|| '')
@@ -22,6 +23,24 @@ function MyPets(){
             setPets(response.data.pets)
         })
     },[token])
+
+    async function removePet(id) {
+        let msgType = 'success'
+
+        const data = await api.delete(`/pets/${id}`,{
+            headers:{
+                Authorization:`Bearer ${JSON.parse(token)}`,
+            }
+        }).then((response)=>{
+            const updatedPets = pets.filter((pet)=>pet._id !== id)
+            setPets(updatedPets)
+            return response.data
+        }).catch((err)=>{
+            msgType = 'error'
+            return err.response.data
+        })
+        setFlashMessage(data.message,msgType)
+    }
 
     return(
         <section>
@@ -47,7 +66,9 @@ function MyPets(){
                                         </button>
                                     )}
                                     <Link to={`/pet/edit/${pet._id}`}>Editar</Link>
-                                    <button>Excluir</button>
+                                    <button onClick={()=>{
+                                        removePet(pet._id)
+                                    }}>Excluir</button>
                                 </>) : <p>Pet ja adotado</p>}
                             </div>
 
