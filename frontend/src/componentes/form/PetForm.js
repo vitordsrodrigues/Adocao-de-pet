@@ -1,8 +1,9 @@
 import { useState } from "react"
-import formStyles from './form.module.css'
+import formStyles from './Form.module.css'
 import Input from "./Input"
 import Select from "./Select"
 import { set } from "mongoose"
+
 function PetForm({handleSubmit,petData,btnText}){
     const [pet,setPet] = useState(petData || {})
     const [preview,setPreview] = useState([])

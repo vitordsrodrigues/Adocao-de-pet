@@ -1,7 +1,7 @@
 import { useState,useEffect } from 'react'
 import api from '../../../utils/api'
 import useFlashMessage from '../../../hooks/useFlashMessage'
-import formStyles from '../../form/form.module.css'
+import formStyles from '../../form/Form.module.css'
 import styles from './Profile.module.css'
 import Input from '../../form/Input'
 import RoundedImage from '../../layout/RoundedImage'

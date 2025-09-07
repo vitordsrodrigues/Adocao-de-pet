@@ -7,12 +7,12 @@ import Container from './componentes/layout/Container';
 import Message from './componentes/layout/Message';
 
 //pages
-import Login from './componentes/pages/Auth/login';
-import Register from './componentes/pages/Auth/register';
-import Home from './componentes/pages/home';
+import Login from './componentes/pages/Auth/Login';
+import Register from './componentes/pages/Auth/Register';
+import Home from './componentes/pages/Home';
 import Profile from './componentes/pages/User/Profile';
 import MyPets from './componentes/pages/Pet/MyPets';
-import AddPet from './componentes/pages/Pet/addPet';
+import AddPet from './componentes/pages/Pet/AddPet';
 import EditPet from './componentes/pages/Pet/EditPet';
 
 //context
