@@ -48,7 +48,7 @@ function MyPets(){
                 <h1>Meus Pets</h1>
                 <Link to="/pet/add">Cadastrar Pet</Link>
             </div>
-            <div className={styles.petlist_container}>
+            <div className={styles.petslist_container}>
                 {pets.length > 0 &&
                     pets.map((pet)=>(
                         <div className={styles.petlist_row} key={pet._id}>
