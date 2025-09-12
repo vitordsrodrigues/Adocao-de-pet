@@ -246,7 +246,7 @@ module.exports = class PetControllers{
         pet.adopter = {
             _id:user._id,
             name:user.name,
-            image:user,image
+            image:user.image
         }
 
         await Pet.findByIdAndUpdate(id,pet)
