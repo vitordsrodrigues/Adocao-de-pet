@@ -280,7 +280,7 @@ module.exports = class PetControllers{
 
            await Pet.findByIdAndUpdate(id,pet)
 
-           res.status(200).json({message:'parabens! pela sua adoção'})
+           res.status(200).json({message:'parabens! ciclo de adoção de pet concluido'})
            
     }
 }

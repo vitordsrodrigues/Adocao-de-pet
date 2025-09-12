@@ -8,6 +8,7 @@ import styles from './Dashboard.module.css'
 import useFlashMessage from "../../../hooks/useFlashMessage"
 
 
+
 function MyPets(){
     const [pets,setPets] = useState([])
     const [token] = useState(localStorage.getItem('token')|| '')
@@ -42,6 +43,23 @@ function MyPets(){
         setFlashMessage(data.message,msgType)
     }
 
+    async function concludeAdoption(id) {
+        let msgType = 'success'
+
+        const data = await api.patch(`/pets/conclude/${id}`,{
+            headers:{
+                Authorization:`Bearer ${JSON.parse(token)}`,
+            },
+        }).then((response)=>{
+            return response.data
+        }).catch((err)=>{
+            msgType = 'error'
+            return err.response.data
+        })
+
+        setFlashMessage(data.message, msgType)
+    }
+
     return(
         <section>
             <div className={styles.petslist_header}>
@@ -61,7 +79,9 @@ function MyPets(){
                             <div className={styles.actions}>
                                 {pet.available ? (<>
                                     {pet.adopter && (
-                                        <button className={styles.conclude_bnt}>
+                                        <button className={styles.conclude_bnt} onClick={()=>{
+                                            concludeAdoption(pet._id)
+                                        }}>
                                             concluir adoção
                                         </button>
                                     )}
